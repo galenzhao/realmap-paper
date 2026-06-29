@@ -51,6 +51,19 @@ $env:JAVA_HOME = "C:\path\to\jdk-25"
 
 `start.bat` 和 `build.bat` 会优先使用 `JAVA_HOME`，未设置时使用脚本内默认路径。
 
+### 4. JVM 启动参数
+
+`start.bat` 使用 [Fill](https://fill-ui.papermc.io/projects/paper/family/26.1) 为 **Paper 26.1 / Java 25** 推荐的 G1GC 参数（`-Xms` 与 `-Xmx` 相同）。
+
+默认分配 **2G** 内存，可通过环境变量调整：
+
+```powershell
+$env:SERVER_MEMORY = "4G"
+.\start.bat
+```
+
+完整参数列表见 Fill 页面；与旧版 [Aikar's flags](https://docs.papermc.io/paper/aikars-flags/) 类似，但已针对 Java 25 更新，且不再包含 `-Dusing.aikars.flags` 等 legacy 属性。
+
 ## 快速开始
 
 ```powershell
