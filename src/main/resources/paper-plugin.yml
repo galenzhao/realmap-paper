@@ -1,0 +1,5 @@
+name: RealMap
+version: '1.0-SNAPSHOT'
+main: com.example.realmap.RealMapPlugin
+description: Real-world map generation via Arnis
+api-version: '26.1.2'

@@ -1,0 +1,44 @@
+anchor:
+  lat: 34.0019
+  lon: -84.1449
+  scale_meters_per_block: 1.0
+
+tile:
+  size_chunks: 8
+  overlap_blocks: 16
+
+arnis:
+  # Path to Arnis CLI (relative to server root, or absolute)
+  binary_path: "arnis/arnis-windows.exe"
+  staging_dir: "plugins/RealMap/staging"
+  timeout_seconds: 300
+
+scheduler:
+  tick_interval_seconds: 2
+  # --- Production preload (see design doc §10) ---
+  # Chebyshev radius around each player re-scanned every tick (2 = 5×5 tiles).
+  preload_radius_tiles: 2
+  # Extra tiles queued beyond radius, in movement/facing direction only.
+  lookahead_tiles: 3
+  # Minimum omnidirectional ring even if preload_radius_tiles is 0.
+  buffer_tiles_omnidirectional: 1
+  # Block walking into tiles that are not MERGED yet.
+  block_unloaded_tiles: true
+  max_concurrent_generations: 1
+  # First-start only: which tiles to queue before any player joins.
+  # "center"   — only tile(0,0)  (recommended for production)
+  # "strip_N"  — tile(0,0) + N tiles east, e.g. strip_3 loads (0,0)(1,0)(2,0)
+  # "grid_R"   — R-radius square, e.g. grid_1 = 3x3
+  preload_mode: "center"
+
+merge:
+  chunks_per_tick: 1
+
+retry:
+  max_retries: 3
+  backoff_seconds: 30
+
+dev:
+  # Full server wipe on every startup: world/, tile DB, staging (dev only).
+  # start.bat deletes these BEFORE the JVM starts; plugin also tries on enable.
+  clear_on_startup: false

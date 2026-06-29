@@ -1,0 +1,37 @@
+# Build
+/target/
+
+# IDE
+/.idea/
+/.claude/
+*.iml
+
+# Minecraft server runtime (generated on first start)
+/world/
+/logs/
+/cache/
+/libraries/
+/versions/
+/usercache.json
+/ops.json
+/banned-*.json
+/whitelist.json
+/permissions.yml
+/.console_history
+/version_history.json
+
+# Paper server jar (download separately — see README)
+/paper-*.jar
+
+# Plugin runtime data (rebuilt from source)
+/plugins/RealMap/
+/plugins/bStats/
+/plugins/spark/
+/plugins/*.jar
+
+# Local Arnis binary (download separately)
+/arnis/
+
+# OS
+Thumbs.db
+.DS_Store
