@@ -102,7 +102,7 @@ public class RealMapPlugin extends JavaPlugin {
         );
 
         // --- First-start detection ---
-        String preloadMode = getConfig().getString("scheduler.preload_mode", "strip_3");
+        String preloadMode = getConfig().getString("scheduler.preload_mode", "center");
         try {
             boolean firstStart = db.countByStatus(TileStatus.MERGED) == 0
                               && db.countByStatus(TileStatus.PENDING) == 0;

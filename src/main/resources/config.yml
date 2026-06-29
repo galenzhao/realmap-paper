@@ -5,7 +5,7 @@ anchor:
 
 tile:
   size_chunks: 8
-  overlap_blocks: 16
+  overlap_blocks: 16   # not used yet — bbox has no overlap padding
 
 arnis:
   # Path to Arnis CLI (relative to server root, or absolute)
@@ -32,11 +32,11 @@ scheduler:
   preload_mode: "center"
 
 merge:
-  chunks_per_tick: 1
+  chunks_per_tick: 1   # not used — RegionFileMerger runs in one worker pass
 
 retry:
   max_retries: 3
-  backoff_seconds: 30
+  backoff_seconds: 30  # not used — failures re-queue immediately
 
 dev:
   # Full server wipe on every startup: world/, tile DB, staging (dev only).
